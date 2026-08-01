@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main()
+{
+    int arr[5], num;
+    int low = 0, high = 4, mid, i;
+
+    printf("Enter 5 sorted elements:\n");
+    for(i = 0; i < 5; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Enter element to search: ");
+    scanf("%d", &num);
+
+    while(low <= high)
+    {
+        mid = (low + high) / 2;
+
+        if(arr[mid] == num)
+        {
+            printf("Element found at index %d", mid);
+            return 0;
+        }
+
+        if(arr[mid] < num)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+
+    printf("Element not found");
+
+    return 0;
+}
