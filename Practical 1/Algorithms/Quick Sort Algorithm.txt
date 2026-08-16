@@ -1,0 +1,43 @@
+Algorithm: Quick Sort
+
+Aim:
+To sort an array using the Divide and Conquer approach by selecting a pivot
+element and partitioning the array around the pivot.
+
+Input:
+- Number of elements n
+- Array of n elements
+
+Output:
+- Sorted array in ascending order
+
+Steps (Quick Sort):
+1. Start
+2. Read the number of elements n
+3. Read n elements into array arr[]
+4. Call QuickSort(arr, 0, n - 1)
+5. Print the sorted array
+6. Stop
+
+Procedure QuickSort(arr, low, high):
+1. If low < high then
+2.    Set pi = Partition(arr, low, high)
+3.    Call QuickSort(arr, low, pi - 1)
+4.    Call QuickSort(arr, pi + 1, high)
+
+Procedure Partition(arr, low, high):
+1. Set pivot = arr[high]
+2. Set i = low - 1
+3. For j = low to high - 1, repeat steps 4 to 5
+4.    If arr[j] < pivot then
+5.       Increment i
+         Swap arr[i] and arr[j]
+6. Swap arr[i + 1] and arr[high]
+7. Return (i + 1)
+
+Time Complexity:
+- Best Case   : O(n log n)
+- Average Case: O(n log n)
+- Worst Case  : O(n^2)   (already sorted / reverse sorted with bad pivot)
+
+Space Complexity: O(log n)  (recursive stack, average case)

@@ -1,0 +1,33 @@
+Algorithm: Linear Search
+
+Aim:
+To search for an element in an array by checking each element sequentially.
+
+Input:
+- Number of elements n
+- Array of n elements
+- Element to be searched (key)
+
+Output:
+- Index of the element if found, otherwise "Element not found"
+
+Steps:
+1. Start
+2. Read the number of elements n
+3. Read n elements into array arr[]
+4. Read the element to search (key)
+5. Set i = 0
+6. Repeat steps 7 to 8 while i < n
+7.    If arr[i] == key then
+         Print "Element found at index i"
+         Go to Step 10
+8.    Increment i by 1
+9. Print "Element not found"
+10. Stop
+
+Time Complexity:
+- Best Case   : O(1)   (element found at first position)
+- Average Case: O(n)
+- Worst Case  : O(n)   (element not present or at last position)
+
+Space Complexity: O(1)

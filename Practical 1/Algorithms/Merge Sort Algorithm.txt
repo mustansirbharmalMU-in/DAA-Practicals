@@ -1,0 +1,48 @@
+Algorithm: Merge Sort
+
+Aim:
+To sort an array using the Divide and Conquer approach by dividing the array
+into halves, sorting them recursively, and then merging the sorted halves.
+
+Input:
+- Number of elements n
+- Array of n elements
+
+Output:
+- Sorted array in ascending order
+
+Steps (Merge Sort):
+1. Start
+2. Read the number of elements n
+3. Read n elements into array arr[]
+4. Call MergeSort(arr, 0, n - 1)
+5. Print the sorted array
+6. Stop
+
+Procedure MergeSort(arr, left, right):
+1. If left < right then
+2.    Set mid = left + (right - left) / 2
+3.    Call MergeSort(arr, left, mid)
+4.    Call MergeSort(arr, mid + 1, right)
+5.    Call Merge(arr, left, mid, right)
+
+Procedure Merge(arr, left, mid, right):
+1. Create temporary arrays L[] and R[] for left and right subarrays
+2. Copy elements from arr[left..mid] into L[]
+3. Copy elements from arr[mid+1..right] into R[]
+4. Set i = 0, j = 0, k = left
+5. While i < size of L and j < size of R
+6.    If L[i] <= R[j] then
+         arr[k] = L[i]; i = i + 1
+7.    Else
+         arr[k] = R[j]; j = j + 1
+8.    k = k + 1
+9. Copy any remaining elements of L[] into arr[]
+10. Copy any remaining elements of R[] into arr[]
+
+Time Complexity:
+- Best Case   : O(n log n)
+- Average Case: O(n log n)
+- Worst Case  : O(n log n)
+
+Space Complexity: O(n)

@@ -1,0 +1,32 @@
+Algorithm: Selection Sort
+
+Aim:
+To sort an array by repeatedly selecting the minimum element from the
+unsorted portion and placing it at the beginning.
+
+Input:
+- Number of elements n
+- Array of n elements
+
+Output:
+- Sorted array in ascending order
+
+Steps:
+1. Start
+2. Read the number of elements n
+3. Read n elements into array arr[]
+4. For i = 0 to n - 2, repeat steps 5 to 9
+5.    Set min_idx = i
+6.    For j = i + 1 to n - 1, repeat steps 7 to 8
+7.       If arr[j] < arr[min_idx] then
+8.          Set min_idx = j
+9.    Swap arr[i] and arr[min_idx]
+10. Print the sorted array
+11. Stop
+
+Time Complexity:
+- Best Case   : O(n^2)
+- Average Case: O(n^2)
+- Worst Case  : O(n^2)
+
+Space Complexity: O(1)

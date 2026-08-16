@@ -1,0 +1,33 @@
+Algorithm: Insertion Sort
+
+Aim:
+To sort an array by building a sorted portion one element at a time,
+inserting each new element into its correct position.
+
+Input:
+- Number of elements n
+- Array of n elements
+
+Output:
+- Sorted array in ascending order
+
+Steps:
+1. Start
+2. Read the number of elements n
+3. Read n elements into array arr[]
+4. For i = 1 to n - 1, repeat steps 5 to 9
+5.    Set key = arr[i]
+6.    Set j = i - 1
+7.    While j >= 0 and arr[j] > key, repeat steps 8 to 9
+8.       Set arr[j + 1] = arr[j]
+9.       Decrement j by 1
+10.   Set arr[j + 1] = key
+11. Print the sorted array
+12. Stop
+
+Time Complexity:
+- Best Case   : O(n)     (already sorted)
+- Average Case: O(n^2)
+- Worst Case  : O(n^2)   (reverse sorted)
+
+Space Complexity: O(1)
