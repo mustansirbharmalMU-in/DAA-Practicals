@@ -1,0 +1,15 @@
+Linear Search – Summary
+
+Linear search checks each element one by one from the beginning of the list until the required element is found or the list ends. It is simple and easy to understand. It can be used on both sorted and unsorted data. If the element is at the end, it takes more time because every element is checked.
+
+Conclusion
+
+Linear search is a simple searching method suitable for small or unsorted data. It is easy to implement but becomes slower when the number of elements increases.
+
+Binary Search – Summary
+
+Binary search works only on sorted data. It finds the middle element and compares it with the target value. If the target is smaller, it searches the left half; if larger, it searches the right half. This process continues until the element is found or no elements remain.
+
+Conclusion
+
+Binary search is a fast and efficient searching method for sorted data. It reduces the search area by half in each step and is much faster than linear search for large datasets.
