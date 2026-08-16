@@ -1,0 +1,54 @@
+Algorithm: Binary Search
+
+Aim:
+To search for an element in a sorted array by repeatedly dividing the search
+interval into half.
+
+Input:
+- Number of elements n
+- Array of n elements (may be unsorted; sorted before searching)
+- Element to be searched (key)
+
+Output:
+- Sorted array
+- Index of the element if found, otherwise "Element not found"
+- Execution time and complexity analysis
+
+Precondition:
+Array must be sorted in ascending order before binary search begins.
+
+Steps:
+1. Start
+2. Read the number of elements n
+3. Read n elements into array arr[]
+4. Sort the array in ascending order
+5. Read the element to search (key)
+6. Start timer
+7. Set low = 0 and high = n - 1
+8. Set found = false
+9. Repeat steps 10 to 13 while low <= high
+10.   Set mid = (low + high) / 2
+11.   If arr[mid] == key then
+         Set found = true
+         Set position = mid
+         Break from the loop
+12.   Else if arr[mid] < key then
+         Set low = mid + 1
+13.   Else
+         Set high = mid - 1
+14. Stop timer
+15. Print the sorted array
+16. If found is true then
+       Print "Element found at index position"
+    Else
+       Print "Element not found"
+17. Print execution time
+18. Print time and space complexity
+19. Stop
+
+Time Complexity:
+- Best Case   : O(1)     (element found at middle)
+- Average Case: O(log n)
+- Worst Case  : O(log n)
+
+Space Complexity: O(1)  (iterative implementation)
