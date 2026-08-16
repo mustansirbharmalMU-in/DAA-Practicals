@@ -1,0 +1,60 @@
+Algorithm: Max Heap Sort
+
+Aim:
+To sort an array in ascending order using the Max Heap data structure by
+repeatedly extracting the largest element from the heap.
+
+Input:
+- Number of elements n
+- Array of n elements
+
+Output:
+- Sorted array in ascending order
+- Execution time and complexity analysis
+
+Steps:
+1. Start
+2. Read the number of elements n
+3. Read n elements into array arr[]
+4. Start timer
+5. Call HeapSort(arr, n)
+6. Stop timer
+7. Print the sorted array
+8. Print execution time
+9. Print time and space complexity
+10. Stop
+
+Procedure HeapSort(arr, n):
+1. Build a Max Heap:
+      For i = (n / 2) - 1 down to 0
+         Call Heapify(arr, n, i)
+2. Extract elements from the heap one by one:
+      For i = n - 1 down to 1
+         Swap arr[0] (root / largest) with arr[i]
+         Call Heapify(arr, i, 0) to restore Max Heap property
+
+Procedure Heapify(arr, n, i):
+1. Set largest = i
+2. Set left = 2 * i + 1
+3. Set right = 2 * i + 2
+4. If left < n and arr[left] > arr[largest] then
+      Set largest = left
+5. If right < n and arr[right] > arr[largest] then
+      Set largest = right
+6. If largest != i then
+      Swap arr[i] and arr[largest]
+      Call Heapify(arr, n, largest)
+
+Working Principle:
+1. Convert the array into a Max Heap (largest element becomes the root).
+2. Swap the root (largest element) with the last element.
+3. Reduce the heap size by one.
+4. Apply heapify to restore the Max Heap property.
+5. Repeat until the heap size becomes 1.
+
+Time Complexity:
+- Best Case   : O(n log n)
+- Average Case: O(n log n)
+- Worst Case  : O(n log n)
+
+Space Complexity: O(1)
