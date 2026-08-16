@@ -1,0 +1,9 @@
+                                                   Practical3DAA
+
+
+
+Summary
+In this practical, I implemented Max Heap Sort using C. First, I created a Max Heap where the largest element comes to the top. Then I repeatedly moved the largest element to the end and adjusted the heap again. By doing this process, all the elements were arranged in ascending order. The time complexity of Max Heap Sort is O(n log n).
+Conclusion
+From this practical, I learned how Max Heap Sort works and how a Max Heap is created. I also understood how the largest element is selected and placed in its correct position. Max Heap Sort is an efficient sorting method because its time complexity is O(n log n). I successfully implemented and executed the program in Python.
+
