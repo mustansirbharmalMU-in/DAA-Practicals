@@ -1,0 +1,33 @@
+Algorithm: Factorial using Iterative Method
+
+Aim:
+To calculate the factorial of a given number using a loop (iterative approach).
+
+Input:
+- A non-negative integer n
+
+Output:
+- Factorial of n
+- Execution time
+- Time and space complexity
+
+Steps:
+1. Start
+2. Read the number n
+3. Start timer
+4. Set result = 1
+5. For i = 1 to n, repeat step 6
+6.    Set result = result * i
+7. Stop timer
+8. Print the number n
+9. Print the factorial (result)
+10. Print execution time
+11. Print time complexity: O(n)
+12. Print space complexity: O(1)
+13. Stop
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Note:
+The iterative method does not use additional memory that grows with the input size.

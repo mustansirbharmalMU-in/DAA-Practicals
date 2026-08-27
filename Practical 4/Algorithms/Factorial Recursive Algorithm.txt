@@ -1,0 +1,38 @@
+Algorithm: Factorial using Recursive Method
+
+Aim:
+To calculate the factorial of a given number by calling the same function
+repeatedly until the base case is reached.
+
+Input:
+- A non-negative integer n
+
+Output:
+- Factorial of n
+- Execution time
+- Time and space complexity
+
+Steps:
+1. Start
+2. Read the number n
+3. Start timer
+4. Call Factorial(n) and store the result
+5. Stop timer
+6. Print the number n
+7. Print the factorial (result)
+8. Print execution time
+9. Print time complexity: O(n)
+10. Print space complexity: O(n)
+11. Stop
+
+Procedure Factorial(n):
+1. If n == 0 or n == 1 then
+      Return 1
+2. Else
+      Return n * Factorial(n - 1)
+
+Time Complexity: O(n)
+Space Complexity: O(n)  (due to recursive call stack)
+
+Note:
+The recursive method uses stack memory proportional to n for the recursive calls.
