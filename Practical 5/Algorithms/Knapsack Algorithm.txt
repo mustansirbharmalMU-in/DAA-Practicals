@@ -1,0 +1,48 @@
+Algorithm: 0/1 Knapsack (Dynamic Programming)
+
+Aim:
+To find the maximum profit that can be obtained by selecting items
+without exceeding the knapsack capacity. Each item can be taken at
+most once (0/1).
+
+Input:
+- Number of items n
+- Weight of each item
+- Profit (value) of each item
+- Knapsack capacity W
+
+Output:
+- Maximum profit
+- Execution time and complexity
+
+Steps:
+1. Start
+2. Read n, weights[], values[], and capacity W
+3. Create a DP table dp[n+1][W+1] and initialize all cells to 0
+4. For i = 1 to n, repeat steps 5 to 8
+5.    For w = 1 to W, repeat steps 6 to 8
+6.       If weights[i-1] <= w then
+            take = values[i-1] + dp[i-1][w - weights[i-1]]
+            skip = dp[i-1][w]
+            dp[i][w] = maximum of (take, skip)
+7.       Else
+            dp[i][w] = dp[i-1][w]   (item too heavy, skip)
+8. Continue
+9. Maximum profit = dp[n][W]
+10. Print maximum profit
+11. Stop
+
+Idea:
+For every item and every capacity, decide:
+- Take the item (if it fits), OR
+- Skip the item
+Choose the option that gives more profit.
+
+Example:
+Weights = [2, 3, 4, 5]
+Profits = [3, 4, 5, 6]
+Capacity = 5
+Maximum profit = 7  (items with weight 2 and 3)
+
+Time Complexity: O(n * W)
+Space Complexity: O(n * W)

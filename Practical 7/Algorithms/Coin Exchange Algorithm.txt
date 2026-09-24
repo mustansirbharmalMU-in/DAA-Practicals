@@ -1,0 +1,43 @@
+Algorithm: Coin Exchange / Coin Change (Dynamic Programming)
+
+Aim:
+To find the minimum number of coins needed to make a given amount
+using the available coin denominations.
+
+Input:
+- Number of coin types n
+- Coin values
+- Target amount A
+
+Output:
+- Minimum number of coins (or message if impossible)
+- Execution time and complexity
+
+Steps:
+1. Start
+2. Read coin values and amount A
+3. Create array dp[0..A]
+4. Set dp[0] = 0
+5. Set dp[1], dp[2], ..., dp[A] = infinity
+6. For i = 1 to A, repeat steps 7 to 9
+7.    For each coin in coins[], repeat steps 8 to 9
+8.       If coin <= i and dp[i - coin] is not infinity then
+9.          dp[i] = minimum of (dp[i], dp[i - coin] + 1)
+10. If dp[A] is still infinity then
+       Print "amount cannot be formed"
+    Else
+       Print dp[A] as minimum coins
+11. Stop
+
+Idea:
+dp[i] = minimum coins needed to make amount i.
+Build answer for small amounts first, then use them for larger amounts.
+
+Example:
+Coins = [1, 2, 5, 10]
+Amount = 18
+Minimum coins = 4
+(One possible way: 10 + 5 + 2 + 1)
+
+Time Complexity: O(n * A)
+Space Complexity: O(A)

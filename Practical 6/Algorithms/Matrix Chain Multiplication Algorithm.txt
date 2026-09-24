@@ -1,0 +1,44 @@
+Algorithm: Matrix Chain Multiplication (Dynamic Programming)
+
+Aim:
+To find the minimum number of scalar multiplications needed to
+multiply a chain of matrices.
+
+Input:
+- Array of matrix dimensions p[]
+  Example: [10, 30, 5, 60] means matrices
+  A1(10x30), A2(30x5), A3(5x60)
+
+Output:
+- Minimum multiplication cost
+- Execution time and complexity
+
+Steps:
+1. Start
+2. Read dimension array p[] of size m
+3. Set n = m - 1  (number of matrices)
+4. Create DP table dp[n][n]
+5. Set dp[i][i] = 0 for all i  (one matrix needs 0 multiplications)
+6. For length = 2 to n, repeat steps 7 to 12
+7.    For i = 0 to n - length, repeat steps 8 to 12
+8.       Set j = i + length - 1
+9.       Set dp[i][j] = infinity
+10.      For k = i to j - 1, repeat steps 11 to 12
+11.         cost = dp[i][k] + dp[k+1][j] + p[i]*p[k+1]*p[j+1]
+12.         If cost < dp[i][j] then dp[i][j] = cost
+13. Minimum cost = dp[0][n-1]
+14. Print minimum cost
+15. Stop
+
+Idea:
+Try every possible place to split the chain.
+Keep the split that gives the lowest cost.
+Use already computed smaller chains from the DP table.
+
+Example:
+Dimensions = [10, 30, 5, 60, 20, 10]
+Matrices: 10x30, 30x5, 5x60, 60x20, 20x10
+Minimum multiplications = 9000
+
+Time Complexity: O(n^3)
+Space Complexity: O(n^2)
