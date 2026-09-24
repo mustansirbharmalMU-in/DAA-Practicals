@@ -1,80 +1,83 @@
 #include <stdio.h>
-#include <limits.h>
-#include <time.h>
+
+#define BIG 99999   // means "not possible yet"
 
 /*
-   Coin Exchange using Dynamic Programming
-   Find minimum number of coins to make given amount
+   Coin Exchange (Dynamic Programming)
+   Find minimum coins needed to make the given money
 */
-int coinChange(int coins[], int n, int amount)
+int minCoins(int coin[], int types, int money)
 {
-    int dp[amount + 1];
-    int i, j;
+    int table[money + 1];
 
-    // initialize: impossible amounts = very large number
-    for (i = 0; i <= amount; i++)
-        dp[i] = INT_MAX;
+    // pay = Represents the current amount we are trying to make.
+    // c = Represents the current coin we are testing.
+    int pay, c;
+    int using_this_coin;
 
-    // 0 coins needed to make amount 0
-    dp[0] = 0;
+    // at start, mark all amounts as not possible
+    for (pay = 0; pay <= money; pay++)
+        table[pay] = BIG;
 
-    // for every amount from 1 to target
-    for (i = 1; i <= amount; i++)
+    // 0 money needs 0 coins
+    table[0] = 0;
+
+    // make every amount from 1 to money
+    for (pay = 1; pay <= money; pay++)
     {
-        // try every coin
-        for (j = 0; j < n; j++)
+        // try each coin
+        for (c = 0; c < types; c++)
         {
-            if (coins[j] <= i && dp[i - coins[j]] != INT_MAX)
+            // coin can be used only if it is <= current amount
+            if (coin[c] <= pay && table[pay - coin[c]] != BIG)
             {
-                int option = dp[i - coins[j]] + 1;
+                // 1 current coin + best for remaining money
+                using_this_coin = table[pay - coin[c]] + 1;
 
-                if (option < dp[i])
-                    dp[i] = option;
+                // keep smaller count
+                if (using_this_coin < table[pay])
+                    table[pay] = using_this_coin;
             }
         }
     }
 
-    // if still INT_MAX, amount cannot be formed
-    if (dp[amount] == INT_MAX)
+    // still BIG means cannot make this money
+    if (table[money] == BIG)
         return -1;
 
-    return dp[amount];
+    return table[money];
 }
 
 int main()
 {
-    int n, amount, i, result;
-    clock_t start, end;
+    int types, money, i;
+    int answer;
 
     printf("Enter number of coin types: ");
-    scanf("%d", &n);
+    scanf("%d", &types);
 
-    int coins[n];
+    int coin[types];
 
-    printf("Enter %d coin values:\n", n);
-    for (i = 0; i < n; i++)
-        scanf("%d", &coins[i]);
+    printf("Enter %d coin values:\n", types);
+    for (i = 0; i < types; i++)
+        scanf("%d", &coin[i]);
 
     printf("Enter the amount: ");
-    scanf("%d", &amount);
+    scanf("%d", &money);
 
-    start = clock();
-    result = coinChange(coins, n, amount);
-    end = clock();
+    answer = minCoins(coin, types, money);
 
     printf("\nCoins: ");
-    for (i = 0; i < n; i++)
-        printf("%d ", coins[i]);
+    for (i = 0; i < types; i++)
+        printf("%d ", coin[i]);
 
-    printf("\nAmount: %d\n", amount);
+    printf("\nAmount: %d\n", money);
 
-    if (result == -1)
+    if (answer == -1)
         printf("The amount cannot be formed using the given coins.\n");
     else
-        printf("Minimum number of coins required: %d\n", result);
+        printf("Minimum number of coins required: %d\n", answer);
 
-    printf("Execution time: %.8f seconds\n",
-           (double)(end - start) / CLOCKS_PER_SEC);
     printf("Time Complexity: O(n * A)\n");
     printf("Space Complexity: O(A)\n");
 
