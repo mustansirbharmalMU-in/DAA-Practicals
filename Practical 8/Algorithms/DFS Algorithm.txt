@@ -1,0 +1,46 @@
+Algorithm: DFS (Depth First Search)
+
+Aim:
+To visit all vertices of a graph by going as deep as possible along one path,
+then backtracking.
+
+Input:
+- Graph (adjacency matrix / adjacency list)
+- Starting vertex
+
+Output:
+- Order of visited vertices
+- Time and space complexity
+
+Steps:
+1. Start
+2. Create a visited array and mark all vertices as not visited
+3. Call DFS(start)
+4. Stop
+
+Procedure DFS(node):
+1. Print node
+2. Mark node as visited
+3. For every neighbour of node
+4.    If neighbour is not visited then
+         Call DFS(neighbour)
+
+Idea:
+DFS uses recursion (or a stack).
+It goes deep on one path first, then comes back (backtracks)
+to explore the remaining paths.
+
+Example Graph:
+    A -- B -- D
+    |    |
+    C    E
+    |    |
+    F ----
+
+Start from A
+One possible DFS order: A B D E F C
+
+Time Complexity: O(V + E)
+Space Complexity: O(V)
+
+Where V = number of vertices, E = number of edges

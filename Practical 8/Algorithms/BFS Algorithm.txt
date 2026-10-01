@@ -1,0 +1,47 @@
+Algorithm: BFS (Breadth First Search)
+
+Aim:
+To visit all vertices of a graph level by level, starting from a given vertex.
+
+Input:
+- Graph (adjacency matrix / adjacency list)
+- Starting vertex
+
+Output:
+- Order of visited vertices
+- Time and space complexity
+
+Steps:
+1. Start
+2. Create an empty queue
+3. Create a visited array and mark all vertices as not visited
+4. Insert the start vertex into the queue
+5. Mark the start vertex as visited
+6. Repeat steps 7 to 10 while queue is not empty
+7.    Remove one vertex from the front of the queue (call it node)
+8.    Print node
+9.    For every neighbour of node
+10.      If neighbour is not visited then
+            Insert neighbour into the queue
+            Mark neighbour as visited
+11. Stop
+
+Idea:
+BFS uses a queue.
+It first visits all neighbours of the current node,
+then their neighbours, and so on (level by level).
+
+Example Graph:
+    A -- B -- D
+    |    |
+    C    E
+    |    |
+    F ----
+
+Start from A
+BFS order: A B C D E F
+
+Time Complexity: O(V + E)
+Space Complexity: O(V)
+
+Where V = number of vertices, E = number of edges
