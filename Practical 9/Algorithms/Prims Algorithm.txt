@@ -1,0 +1,54 @@
+Algorithm: Prim's Algorithm (Minimum Spanning Tree)
+
+Aim:
+To find a Minimum Spanning Tree (MST) of a connected weighted graph.
+MST connects all vertices with minimum total edge weight and no cycles.
+
+Input:
+- Connected weighted graph
+- Starting vertex
+
+Output:
+- Edges present in the MST
+- Total cost of the MST
+
+Steps:
+1. Start
+2. Create a visited set and mark the start vertex as visited
+3. Set MST as empty and total_cost = 0
+4. Repeat steps 5 to 8 until all vertices are visited
+5.    Find the minimum weight edge that connects
+      a visited vertex to an unvisited vertex
+6.    Add that edge to the MST
+7.    Add its weight to total_cost
+8.    Mark the new (unvisited) vertex as visited
+9. Print all MST edges and total_cost
+10. Stop
+
+Idea:
+Start from one vertex.
+Always pick the cheapest edge that joins the tree to a new vertex.
+Do this until every vertex is included.
+
+Example Graph:
+Edges:
+A-B : 2
+A-D : 6
+B-C : 3
+B-D : 8
+B-E : 5
+C-E : 7
+D-E : 9
+
+Start from A
+MST edges:
+A - B : 2
+B - C : 3
+B - E : 5
+A - D : 6
+Total cost = 16
+
+Time Complexity: O(V^2)   (adjacency matrix version)
+Space Complexity: O(V)
+
+Where V = number of vertices

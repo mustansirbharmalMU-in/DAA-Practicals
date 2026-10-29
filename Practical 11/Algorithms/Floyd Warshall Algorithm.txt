@@ -1,0 +1,43 @@
+Algorithm: Floyd-Warshall Algorithm
+
+Aim:
+To find the shortest path distance between every pair of vertices
+in a weighted graph (All-Pairs Shortest Paths).
+
+Input:
+- Weighted graph with V vertices (may have directed edges)
+
+Output:
+- Distance matrix showing shortest distance from every vertex to every other vertex
+
+Steps:
+1. Start
+2. Create a distance matrix dist[][]
+3. Copy the graph weights into dist[][]
+   (use INF where there is no direct edge)
+4. For k = 0 to V - 1, repeat steps 5 to 7
+5.    For i = 0 to V - 1, repeat steps 6 to 7
+6.       For j = 0 to V - 1, repeat step 7
+7.          If dist[i][k] + dist[k][j] < dist[i][j] then
+                dist[i][j] = dist[i][k] + dist[k][j]
+8. Print the final distance matrix
+9. Stop
+
+Idea:
+For every possible middle vertex k, check:
+"Is going i -> k -> j shorter than the current i -> j path?"
+If yes, update the distance.
+
+Example Graph (4 vertices A B C D):
+A->B:3, A->D:7
+B->A:8, B->C:2
+C->A:5, C->D:1
+D->A:2
+
+After Floyd-Warshall, shortest distances are computed for all pairs.
+Example: A to C becomes 5 (A->B->C = 3+2)
+
+Time Complexity: O(V^3)
+Space Complexity: O(V^2)
+
+Where V = number of vertices

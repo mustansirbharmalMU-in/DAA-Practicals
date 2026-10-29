@@ -1,0 +1,50 @@
+Algorithm: Travelling Salesman Problem (TSP)
+
+Aim:
+To find the minimum cost path that visits every city exactly once
+and returns to the starting city.
+
+Input:
+- Complete weighted graph of N cities (distance/cost matrix)
+
+Output:
+- Best path (tour)
+- Minimum tour cost
+
+Steps:
+1. Start
+2. Fix starting city (say A)
+3. Mark starting city as visited
+4. Call TSP(current_city, visited_count, current_cost)
+5. Stop
+
+Procedure TSP(city, count, cost):
+1. If count == N then
+      Add cost of returning to start city
+      If this total cost is smaller than min_cost then
+         Update min_cost and save this path
+      Return
+2. For every unvisited city next
+3.    Mark next as visited
+4.    Call TSP(next, count + 1, cost + distance[city][next])
+5.    Mark next as unvisited (backtrack)
+
+Idea:
+Try all possible orders of visiting cities.
+Keep the route with the smallest total cost.
+Because we try all routes, this is a brute-force / backtracking method.
+
+Example (4 cities A B C D):
+Distances:
+A-B:10, A-C:15, A-D:20
+B-C:35, B-D:25
+C-D:30
+
+One best route: A -> B -> D -> C -> A
+Cost = 10 + 25 + 30 + 15 = 80
+
+Time Complexity: O(N!)   (all permutations)
+Space Complexity: O(N)
+
+Note:
+TSP is an NP-Hard problem. Brute force works only for small N.

@@ -1,0 +1,52 @@
+Algorithm: Kruskal's Algorithm (Minimum Spanning Tree)
+
+Aim:
+To find a Minimum Spanning Tree (MST) of a connected weighted graph
+by selecting edges in increasing order of weight without forming a cycle.
+
+Input:
+- Connected weighted graph with vertices and edges
+
+Output:
+- Edges present in the MST
+- Total cost of the MST
+
+Steps:
+1. Start
+2. Sort all edges in increasing order of weight
+3. Create a separate set for each vertex (parent array)
+4. Set total_cost = 0 and selected_edges = 0
+5. Take the next cheapest edge (u, v, w)
+6. If u and v belong to different sets (no cycle) then
+      Add edge (u, v) to MST
+      Join the two sets
+      total_cost = total_cost + w
+      selected_edges = selected_edges + 1
+7. Repeat steps 5 and 6 until selected_edges = V - 1
+8. Print MST edges and total_cost
+9. Stop
+
+Idea:
+Always pick the cheapest remaining edge.
+Add it only if it does not create a cycle.
+Stop when all vertices are connected (V - 1 edges).
+
+Difference from Prim:
+- Prim grows MST from one starting vertex
+- Kruskal picks global cheapest edges anywhere in the graph
+
+Example Graph:
+A-B:2, A-D:6, B-C:3, B-D:8, B-E:5, C-E:7, D-E:9
+
+Sorted edges: 2, 3, 5, 6, 7, 8, 9
+MST edges:
+A - B : 2
+B - C : 3
+B - E : 5
+A - D : 6
+Total cost = 16
+
+Time Complexity: O(E log E)   (mainly due to sorting)
+Space Complexity: O(V)
+
+Where V = vertices, E = edges
